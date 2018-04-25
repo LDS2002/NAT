@@ -202,15 +202,19 @@ class Memory{
     val name = "pref.sv"
     fun add(key : String, value : String){
         memory[key] = value
+        save()
     }
     fun deleteAll(){
         memory.clear()
+        save()
     }
     fun deleteByKey(key: String){
         memory.remove(key)
+        save()
     }
     fun deleteByValue(value: String){
         memory.forEach({k, v -> if (v == value) memory.remove(k)})
+        save()
     }
     fun findByKey(key : String) : String?{
         return memory[key]
